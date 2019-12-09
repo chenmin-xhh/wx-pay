@@ -1,0 +1,14 @@
+<!--pages/user/user.wxml-->
+<view id="user">
+    <view class="userName">
+        <image class="headimgurl" src="{{user.avatarUrl}}"/>
+        <view class="name">{{user.nickName}}</view>
+        <view class="quit" bindtap="Signout">登出账号</view>
+    </view>
+    <view class="wrap">
+        <view class="wraps" bindtap="fun">
+          <view class="icon-order"></view>
+          <view>订单列表</view>
+        </view> 
+    </view>
+</view>
