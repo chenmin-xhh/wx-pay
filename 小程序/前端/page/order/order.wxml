@@ -1,0 +1,12 @@
+<!--pages/order/order.wxml-->
+<view class="v">
+  <view class="orders" wx:for="{{orderData}}" wx:for-item="ora">
+      <view>订单编号：{{ora.id}}</view>
+      <view>价格：{{ora.money}}</view>
+      <view wx:if="{{ora.state == 0}}">状态：未支付</view>
+      <view wx:elif="{{ora.state == 1}}">状态：已支付</view>
+      <view wx:else>状态：已退款</view>
+      <view bindtap="pay" class="btn" data-id='{{ora.id}}' wx:if="{{ora.state == 0}}">付款</view>
+      <view bindtap="refund" class="btn" wx:if="{{ora.state == 1}}">退款</view>
+  </view>
+</view>
