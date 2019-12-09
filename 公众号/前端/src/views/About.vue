@@ -124,6 +124,7 @@ export default {
   },
   async created() {
     window.console.log(this.$route);
+    //获取url的code
     let code = this.$route.query.code;
     if(code){
       console.info(code);
@@ -151,6 +152,7 @@ export default {
     createOrder(order){
       this.$http.post("/pay", order).then(res => {
         if(res.data.code != 200) return;
+        //调起微信支付
         WeixinJSBridge.invoke(
           'getBrandWCPayRequest', res.data.data,
           (res) => {
